@@ -1,0 +1,25 @@
+{
+ //includs 用来指定哪些需要编译的文件
+ //exclude 用来指定哪些 不 需要编译的ts目录
+ //默认不被编译的 : ["node_modules","bower_components","jspm_packages"];
+ "include": [
+    /*
+     ** 表示：任意目录
+     *表示：任意文件
+    */
+    "./src/**/*"
+  ],
+
+  //指定不包含哪些文件
+  "exclude": [
+
+  ],
+
+  //compilerOptions 编译器的选项
+  
+  "compilerOptions": {
+      "moduleDetection": "force",
+      //outDir 用来指定编译后的js文件输出的所在目录
+      "outDir": "./dist",
+    }
+  }
