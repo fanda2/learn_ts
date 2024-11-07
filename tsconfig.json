@@ -50,6 +50,6 @@
     //strictNullChecks 严格检查空值
 
 
-    "moduleDetection": "force"
+    // "moduleDetection": "force"
     }
   }
