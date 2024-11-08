@@ -140,7 +140,7 @@ searchName =function(source:string,substring:string){
 //可选参数，可选参数必须在必选参数后面！
 //参数默认值，当参数有了默认值之后，不再收到可选参数必须在必须选参数后面的限制了.
 // ES6 中，可以使用 ...rest 的方式获取函数中的剩余参数（rest 参数）：
-function push(array,...items){
+function push(array:number[],...items:any[]){
     items.forEach(function(item){
         array.push(item);
     })
@@ -148,3 +148,32 @@ function push(array,...items){
 let a:any[]=[];
 push(a,1,2,3);
 
+
+// 8. 类型断言，可以用来手动指定一个值的类型    值 as 类型 或 <类型>值
+// 在tsx语法中必须要使用前者
+interface Cat{
+    name:string;
+    run():void;
+}
+interface Fish{
+    name:string;
+    swim:void;
+}
+function isFish(animal:Cat|Fish){
+    if(typeof (animal as Fish).swim == "function"){
+        return true;
+    }
+   return false;
+}
+// 使用类型断言时一定要格外小心，尽量避免断言后调用方法或引用深层属性，以减少不必要的运行时错误。
+// 关于断言部分的总结
+// 1.联合类型可以被断言为其中一个类型
+// 2/父类可以被断言为子类
+// 3.任何类型都可以被断言为 any
+// 4.any 可以被断言为任何类型
+// 5.要使得 A 能够被断言为 B，只需要 A 兼容 B 或 B 兼容 A 即可
+
+// 双重断言 （除非迫不得已，尽量不要使用断言）
+
+
+// 9.当使用第三方库时，需要引用它的声明文件，才能获得对应的代码补全、接口提示等功能。
