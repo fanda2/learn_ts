@@ -1,7 +1,7 @@
 # Learn TypeScript
 ##系统学习ts的打卡记录
 ### tsconfig.json配置项
-```json
+```shell
 {
  //includs 用来指定哪些需要编译的文件
  //exclude 用来指定哪些 不 需要编译的ts目录
