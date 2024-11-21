@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>003-数组的高阶函数</title>
+</head>
+
+<body>
+    <script>
+        const name = ["Andy", "Jack", "Huby", "Tom"];
+        // name.map（回调函数，为前面的回调函数绑定this）
+
+        /**
+         * @item 执行对应的元素
+         * @index 执行对应的下标
+         * @arr 完整的数组对象
+         **/
+
+        const newName = name.map((item, index, arr) => {
+            return item + "000";
+        });
+        console.log("newName", newName);
+
+
+
+
+        //高阶函数 filter
+        const numberArr = [112, 32, 23, 345, 77, 83, 175, 348, 233];
+        const newArr = numberArr.filter((item, index, arr) => {
+            return item > 100;
+        });
+
+        const newArr2 = numberArr.filter((item,index,arr)=>{
+            return item%2 ==0;
+        })
+        console.log(numberArr, "  ", newArr,"  ",newArr2);
+    </script>
+
+</body>
+
+</html>

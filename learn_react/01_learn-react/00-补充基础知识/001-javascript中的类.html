@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>001-javascript中的类</title>
 </head>
+
 <body>
-    
+    <script>
+        //ES5中定义类
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // Person.prototype.running = function(){
+        //     console.log(this.name,this.age,"running");
+        // }
+        // console.log(Person.prototype)
+        // var p = new Person("Jonly",24);
+        // p.running();
+        // 正常在控制台打印出 Jonly 24 running
+
+
+
+        //ES6中使用类实现,创建一个Person类
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            };
+            running() {
+                console.log(this.name, this.age, "running");
+            }
+        }
+
+        var p = new Person("Jack",25);
+        p.running();
+        //打印 Jack 25 running
+
+        let func=p.running;
+        let obj={
+            name:"new HHH",
+            age:102
+        };
+        func=func.bind(obj);
+        func(); //重写函数
+
+    </script>
 </body>
+
 </html>

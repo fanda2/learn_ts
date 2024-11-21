@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>002-javascript中类的继承</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 面向对象的 三个特性   封装、继承、多态
+         * 继承可以减少重复代码，是多态的前提
+         **/
+
+        // class Person {
+        //     constructor(name, age) {
+        //         this.name = name;
+        //         this.age = age;
+        //     };
+        //     running() {
+        //         console.log("running");
+        //     }
+        // }
+
+        // class Students{
+        //     constructor(name,son){
+        //         this.name=name;
+        //         this.son=son;
+        //     };
+        //     running(){
+        //         console.log("running");
+        //     }
+        // }
+
+        // class Teacher{
+        //     constructor(name,age,title){
+        //         this.name=name;
+        //         this.age=age;
+        //         this.title=title;
+        //     };
+        //     running(){
+        //         console.log("running");
+        //     }
+        // }
+
+        /**
+         * 将上面三个类采用继承来做
+         **/
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            };
+            running() {
+                console.log(this.name, "running");
+            }
+        }
+
+        class Students extends Person {
+            constructor(name, age, son) {
+                super(name, age);
+                this.son = son;
+            };
+        }
+
+        class Teacher extends Person {
+            constructor(name, age, title) {
+                super(name, age);
+                this.title = title;
+            }
+        }
+
+        const stu = new Students("Tony", 33, "32133222");
+        console.log(stu.name, stu.age, stu.son);
+        stu.running();
+
+        const tea = new Teacher("Widly", 46, "语文");
+        console.log(tea.name, tea.age, tea.title);
+        tea.running();
+
+
+    </script>
+</body>
+
+</html>
