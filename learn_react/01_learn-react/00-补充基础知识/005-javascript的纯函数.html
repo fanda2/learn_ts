@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>005-Javascript纯函数</title>
+</head>
+<body>
+
+    <script>
+        //1. sum函数为一个纯函数
+        function sum(num1,num2){
+            return num1+num2;
+        }
+
+        console.log(sum(10,20));
+        console.log(sum(43,22));
+
+        let foo=10;
+        // 2.add函数不是一个纯函数
+        function add(num){
+            return foo+num;
+        }
+        console.log(add(10));
+        console.log(add(23));
+
+        foo=20;
+
+        console.log(add(22));
+
+
+
+    </script>
+    
+</body>
+</html>
