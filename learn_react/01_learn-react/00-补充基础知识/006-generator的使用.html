@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>006-generator的使用</title>
+</head>
+<body>
+    <script>
+        // generator：生成器
+
+
+        // 1.普通函数
+        // function foo(){
+        //     console.log("foo被执行了");
+            
+        // }
+        // foo();
+
+        // 2.生成器函数的定义
+        function* foo(){
+            console.log("111")
+            yield "Hello";
+            console.log("222")
+            yield "World"
+            console.log("333")
+            yield "fanda"
+            console.log("4444");
+        }
+
+        //interator 迭代器
+        const result = foo();
+        console.log(result);
+
+        
+    </script>
+    
+</body>
+</html>
