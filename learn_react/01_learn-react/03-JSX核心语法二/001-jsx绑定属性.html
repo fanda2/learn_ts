@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX绑定属性</title>
+    <style>
+        .active{
+            width: 400px;
+            height: 400px;
+            background: salmon;
+        }
+        .box{
+            font-size: 36px;
+            background: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    title:"学习使我快乐",
+                    imgUrl:'https://img1.baidu.com/it/u=554183352,3042898650&fm=253&fmt=auto&app=120&f=JPEG ',
+                    link:"https://www.baidu.com"
+                }
+            };
+
+            render(){
+                {/*结构赋值*/}
+                const {title,imgUrl,link} = this.state;
+                return(
+                    <div>
+                        <h2 title={title}>我是标题</h2>    
+                        <img src={imgUrl} alt="显示图片"/>
+                    </div>
+                )
+            }
+        }
+    </script>
+</body>
+</html>

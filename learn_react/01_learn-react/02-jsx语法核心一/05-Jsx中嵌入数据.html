@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jsx中嵌入数据</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    name:"fanda",
+                    age:24,
+                    test1:null,  //此时不显示出来
+                    test2:"",   //此时不显示出来
+                    test3:undefined,   //此时不显示出来
+                    test4:false,    //此时不显示出来
+                    test5:true,   //此时不显示出来
+
+                    //对象类型不作为JSX中的一个子类（子元素）
+                    friend:{
+                        name:"andy",
+                        age:23,
+                    }
+                }
+            }
+
+            render(){
+
+                return(
+                    <div>
+                        <h2>{this.state.name}</h2>    
+                        <h3>{this.state.age}</h3>
+
+                        <h3>{this.state.test1}</h3>
+                        <h3>{this.state.test2}</h3>
+                        <h3>{this.state.test3}</h3>
+
+
+                        <h3>{this.state.test1+"" /* //显示null*/}</h3> 
+                        <h3>{this.state.test2+""  /*不显示*/}</h3>  
+                        <h3>{this.state.test4.toString() /*显示false字符串*/}</h3>
+
+                        <h2>{this.state.test5&&"你好呀"}</h2>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App/>, document.getElementById("app"))
+    </script>
+</body>
+</html>
