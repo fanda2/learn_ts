@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>007-监听hash的变化</title>
+</head>
+<body>
+    <div id="app">
+        <a href="#/home">首页</a>
+        <a href="#/about">关于</a>
+        <div class="router-view">
+            <h2>首页</h2>
+        </div>
+    </div>
+
+    <script>
+        let routerViewEl = document.getElementsByClassName("router-view")[0];
+        window.addEventListener("hashchange",()=>{
+            switch(location.hash){
+                case "#/home":
+                    console.log("进入Home");
+                    routerViewEl.innerHTML = "<h2>首页</h2>";
+                    break;
+                case "#/about":
+                    console.log("进入About");
+                    routerViewEl.innerHTML = "<h2>关于</h2>";
+                    break;
+                default:
+                    console.log("未读取到取值");
+                    routerViewEl.innerHTML = "";
+            }
+        })
+    </script>
+    
+</body>
+</html>

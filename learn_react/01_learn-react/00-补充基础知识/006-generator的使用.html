@@ -32,7 +32,58 @@
         const result = foo();
         console.log(result);
 
-        
+        // 3.使用迭代器
+        //调用一次next就会消耗一次迭代器
+        // const res1 = result.next();
+        // console.log(res1);
+        // const res2 = result.next();
+        // console.log(res2);
+        // const res3 = result.next();
+        // console.log(res3);
+        // const res4 = result.next();
+        // console.log(res4);
+
+
+        //4.生成器中代码的执行顺序
+
+        //5.练习：定义一个生成器，一次执行1~100个数字
+        // function * generatorNumber(){
+        //     for(var i=1;i<10;i++){
+        //         yield i;
+        //     }
+        // }
+        // const result2 = generatorNumber(); 
+        // for(var j=0;j<10;j++){
+        //     console.log(result.next());
+        // }
+
+        //6.generator和promise一起使用
+        // function bar(){
+        //     const result3= new Promise((resolve,reject)=>{
+        //         setTimeout(()=>{
+        //             resolve("hellow generator");
+        //         },3000);
+        //     })
+
+        //     result3.then((res)=>{
+        //         console.log(res);
+        //     })
+        // }
+
+        function* bar(){
+            console.log("111");
+            const result3 = yield new Promise((resolve,reject)=>{
+                setTimeout((res)=>{
+                    resolve("Hello Generator");
+                },3000);
+            })
+            console.log(result3);
+        }
+
+        const it = bar();
+        it.next().value.then(res=>{
+            it.next(res)
+        })
     </script>
     
 </body>
