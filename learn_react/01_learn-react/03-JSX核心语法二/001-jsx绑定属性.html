@@ -41,10 +41,20 @@
                     <div>
                         <h2 title={title}>我是标题</h2>    
                         <img src={imgUrl} alt="显示图片"/>
+                        <a href={link}>跳转百度</a>
+
+                        <div className="active box">这是一个盒子</div>
+                        <label for=""></label>
+
+                        {/*绑定style获得结果*/}
+                        <div style={{color:'red',fontWeight:'550',fontSize:'50px'}}>这是绑定style的样式</div>
                     </div>
                 )
             }
         }
+
+
+        ReactDOM.render(<App/>,document.getElementById("app"));
     </script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>书籍内容信息填充</title>
+    <style>
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ccc;
+            border-color: #ccc;
+        }
+
+        .count {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="./format-util.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    books: [
+                        {
+                            id: 1,
+                            name: "西游记",
+                            date: "1998-03-12",
+                            price: 12.8,
+                            count: 100,
+                        },
+                        {
+                            id: 2,
+                            name: "围城",
+                            date: "2006-12-03",
+                            price: 65,
+                            count: 103,
+                        },
+                        {
+                            id: 3,
+                            name: "白日梦想家",
+                            date: "2014-11-12",
+                            price: 76,
+                            count: 44,
+                        },
+                        {
+                            id: 1,
+                            name: "钢铁是怎样炼成的",
+                            date: "2002-09-02",
+                            price: 26,
+                            count: 82,
+                        }
+
+                    ]
+                }
+            };
+
+            render() {
+                const { books } = this.state;
+                return (
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>书籍名称</th>
+                                    <th>出版日期</th>
+                                    <th>价格</th>
+                                    <th>购买数量</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    books.map((item, index) => {
+                                        return (
+                                            <tr>
+                                                <td>{index + 1}</td>
+                                                <td>{"《"+item.name+"》"}</td>
+                                                <td>{item.date}</td>
+                                                <td>{formatPrice(item.price)}</td>
+                                                <td><button>-</button><span className="count">{item.count}</span><button>+</button></td>
+                                                <td><button>移除</button></td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+</body>
+
+</html>

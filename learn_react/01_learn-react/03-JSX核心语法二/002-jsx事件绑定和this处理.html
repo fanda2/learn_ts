@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX事件绑定和this处理</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class App extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={
+                    counter:0,
+                    btnVal:"按钮一"
+                }
+
+
+                //方案一
+                this.btnClick3=this.btnClick3.bind(this);
+            }
+
+            render(){
+                const {counter,btnVal}=this.state;
+                return(
+                    <div>
+                      <h2>数字结果为：{counter}</h2>    
+                      <h2>{btnVal}</h2>
+
+                      {/*方案一：bind绑定this（显示绑定）*/}
+                      <button onClick={this.btnClick1.bind(this)}>按钮1</button>
+                      <button onClick={this.btnClick2.bind(this)}>按钮2</button>
+                      <button onClick={this.btnClick3}>按钮3</button>
+
+
+                      {/*方案二：定义函数时使用箭头函数*/}
+                      <button onClick={this.increment}>+1</button>
+
+                      {/*方案3：直接传入一个箭头函数。在箭头函数中实现调用*/}
+                      <button onClick={()=>{this.decrement()}}>-1</button>
+
+                    </div>
+                )
+            };
+
+            btnClick1(){
+                console.log("按钮发生点击事件！@",this);
+                this.setState({btnVal:"点击按钮一"});
+            };
+            btnClick2(){
+                console.log("按钮发生点击事件！@",this);
+                this.setState({btnVal:"点击按钮二"});
+            };
+            btnClick3(){
+                console.log("按钮发生点击事件！@",this);
+                this.setState({btnVal:"点击按钮3"});
+            };
+
+
+            increment=()=>{
+                this.setState({
+                    counter:this.state.counter+1
+                })
+            }
+
+            decrement=()=>{
+                this.setState({
+                    counter:this.state.counter-1
+                })
+            }
+        }
+
+        ReactDOM.render(<App/>,document.getElementById("app"));
+    </script>
+</body>
+
+</html>

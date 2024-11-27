@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX绑定事件-传递参数</title>
+</head>
+<body>
+    <button id="btn">原生按钮</button>
+
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click",function(){
+            console.log("原生按钮被点击");
+        })
+    </script>
+
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        class App extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                    message:"这是一个提示信息",
+                    sport:['篮球','足球','羽毛球','乒乓球','跑步']
+                }
+            }
+            render(){
+                return(
+                    <div>
+                        <button onClick={this.btnClick}>按钮</button>
+                        <ul>
+                            {
+                                this.state.sport.map((item,index)=>{
+                                    return <li onClick={e=>{
+                                        this.liClick(item,index,event);
+                                    }}>{index}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+
+            btnClick(event){
+                console.log("按钮被点击了",event);
+            }
+
+            liClick(val,index,event){
+                console.log("按钮被点击了",val,"  ",index,"    ",event);
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+    
+</body>
+</html>
