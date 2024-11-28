@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.tab-control{
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+}
+
+.tab-item{
+    flex:1;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 100px;
+}
+.active{
+    border-bottom: 2px solid red;
+    color: red;
+}
+.content{
+    width: 100%;
+    margin-top: 20px;
+    height: 300px;
+    line-height: 300px;
+    background: #ccc;
+    font-size: 48px;
+    text-align: center;
+    letter-spacing: 5px;
+}
