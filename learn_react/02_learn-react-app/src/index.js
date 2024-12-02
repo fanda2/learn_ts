@@ -38,7 +38,14 @@ import './css/index.css'
 
 
 // import App from "./09_前面知识点补充/01-setState不可变的力量"
-import App from "./09_前面知识点补充/02-全局事件传递"
+// import App from "./09_前面知识点补充/02-全局事件传递"
+
+
+// import App from "./10_受控组件和非受控组件/01-refs的使用"
+// import App from "./10_受控组件和非受控组件/02-受控组件的基本使用"
+// import App from "./10_受控组件和非受控组件/03-受控组件-select使用"
+// import App from "./10_受控组件和非受控组件/04-受控组件-多个输入"
+import App from  "./10_受控组件和非受控组件/05-非受控组件的使用"
 
 
 
