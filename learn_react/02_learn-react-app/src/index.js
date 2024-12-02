@@ -19,7 +19,27 @@ import './css/index.css'
 
 // import App from "./06_跨组件的通信/01跨组件通信-props"
 // import App from "./06_跨组件的通信/02跨组件通信-context"
-import App from "./06_跨组件的通信/03跨组件通信-context函数组件"
+// import App from "./06_跨组件的通信/03跨组件通信-context函数组件"
+// import App from "./06_跨组件的通信/04跨组件通信-多个context"
+
+
+// import App from "./07_setState的使用/01为什么要使用setState"
+// import App from "./07_setState的使用/02setState是异步更新"
+// import App from "./07_setState的使用/03setState是同步更新"
+// import App from "./07_setState的使用/04setState数据合并"
+// import App from "./07_setState的使用/05setState本身合并"
+
+
+// import App from  "./08_react的性能优化/01-列表中keys的作用"
+// import App from "./08_react的性能优化/02-列表中嵌套render的调用"
+// import App from "./08_react的性能优化/03-shouldComponentUpdate"
+// import App from "./08_react的性能优化/04-PureComponent"
+// import App from "./08_react的性能优化/05-memo的使用"
+
+
+// import App from "./09_前面知识点补充/01-setState不可变的力量"
+import App from "./09_前面知识点补充/02-全局事件传递"
+
 
 
 
